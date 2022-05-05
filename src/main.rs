@@ -19,7 +19,7 @@ fn main() {
             log::info!("New Client: {:?}", addr);
             log::info!("New Client: {:?}", stream);
             log::info!("Starting Plugin.");
-            plugin(&stream);
+            plugin(&mut stream);
             log::info!("Plugin Run Successfully.");
         }
         Err(err) => log::warn!("Unable to get client: {:?}", err),
@@ -29,7 +29,7 @@ fn main() {
 /// Vim Plugin
 ///
 /// Set a global variable
-fn plugin(mut stream: &TcpStream) {
+fn plugin(stream: &mut TcpStream) {
     use vii::channel::ChannelCommand;
     use vii::channel::ExCommand;
 
