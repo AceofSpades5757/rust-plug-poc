@@ -38,9 +38,12 @@ impl Plugin for MyPlugin {
         use vii::channel::ChannelCommand;
         use vii::channel::ExCommand;
 
+        use chrono;
+
         // Vars
         let variable = "rust_plug_plugin_poc";
-        let value = "Hello Vim!".to_string();
+        let dt_string = chrono::offset::Local::now().format("%H-%M");
+        let value = format!("Hello Vim! - AT {}", dt_string);
 
         // Set Global Variable
         let command: String = format!(r#"let g:{variable} = '{value}'"#);
