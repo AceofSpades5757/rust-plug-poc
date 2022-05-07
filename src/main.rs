@@ -6,7 +6,6 @@ use std::io::Write;
 use std::net::TcpListener;
 use std::net::TcpStream;
 
-use clap::Parser;
 use simple_logger::SimpleLogger;
 use vii::plugin::Plugin;
 use vii::plugin::PluginConfig;
