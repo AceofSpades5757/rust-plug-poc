@@ -42,7 +42,7 @@ impl Plugin for MyPlugin {
 
         // Vars
         let variable = "rust_plug_plugin_poc";
-        let dt_string = chrono::offset::Local::now().format("%H-%M");
+        let dt_string = chrono::offset::Local::now().format("%H-%M-%S");
         let value = format!("Hello Vim! - AT {}", dt_string);
 
         // Set Global Variable
