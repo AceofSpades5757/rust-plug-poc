@@ -11,7 +11,7 @@ use vii::plugin::Plugin;
 use vii::plugin::PluginConfig;
 
 fn main() {
-    // From CLI
+    // From environ var
     let port = env::var("VII_PLUGIN_PORT").unwrap();
     let mut plugin = MyPlugin {
         ip: "127.0.0.1".to_string(),
