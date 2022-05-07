@@ -1,4 +1,7 @@
+#![allow(dead_code)]
+#![allow(unused_imports)]
 /// Simple Vim plugin written in Rust and implemented with rust-plug
+use std::env;
 use std::io::Write;
 use std::net::TcpListener;
 use std::net::TcpStream;
@@ -8,18 +11,12 @@ use simple_logger::SimpleLogger;
 use vii::plugin::Plugin;
 use vii::plugin::PluginConfig;
 
-#[derive(Parser)]
-struct Args {
-    #[clap(long)]
-    port: String,
-}
-
 fn main() {
     // From CLI
-    let args = Args::parse();
+    let port = env::var("VII_PLUGIN_PORT").unwrap();
     let mut plugin = MyPlugin {
         ip: "127.0.0.1".to_string(),
-        port: args.port,
+        port,
     };
 
     plugin.run();
